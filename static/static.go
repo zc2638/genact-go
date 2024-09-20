@@ -16,6 +16,7 @@ package static
 
 import (
 	"embed"
+	"path"
 	"path/filepath"
 	"strings"
 )
@@ -32,7 +33,7 @@ func Data() (map[string][]string, error) {
 	result := make(map[string][]string, len(files))
 	for _, f := range files {
 		filename := f.Name()
-		currentPath := "data/" + filename
+		currentPath := path.Join("data", filename)
 		fileData, err := data.ReadFile(currentPath)
 		if err != nil {
 			return nil, err
