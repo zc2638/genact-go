@@ -32,7 +32,7 @@ func Data() (map[string][]string, error) {
 	result := make(map[string][]string, len(files))
 	for _, f := range files {
 		filename := f.Name()
-		currentPath := filepath.Join("data", filename)
+		currentPath := "data/" + filename
 		fileData, err := data.ReadFile(currentPath)
 		if err != nil {
 			return nil, err
